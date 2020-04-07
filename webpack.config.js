@@ -19,6 +19,13 @@ module.exports = {
 			{
 				test: /.js$/,
 				use: 'babel-loader'
+			},
+			{
+				test: /\.css$/,
+				use: [
+					'style-loader',//执行顺序，右到左
+					'css-loader'
+				]
 			}
 		]
 	},
