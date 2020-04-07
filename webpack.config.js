@@ -26,6 +26,14 @@ module.exports = {
 					'style-loader',//执行顺序，右到左
 					'css-loader'
 				]
+			},
+			{
+				test: /.less$/,
+				use: [
+					'style-loader',
+					'css-loader',
+					'less-loader'
+				]
 			}
 		]
 	},
