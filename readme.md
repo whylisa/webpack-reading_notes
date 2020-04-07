@@ -56,3 +56,8 @@
     #### 介绍
 ### 解析ES6
     - 使用babel-loader,babel的配置文件，.babelrc
+### 解析react
+    - 使用@babel/preset-react
+		- less-loader less  style-loader css-loader
+		- 图片解析 file-loader/url-loader
+		- 字体解析 file-loader/url-loader
