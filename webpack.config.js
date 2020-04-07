@@ -14,5 +14,13 @@ module.exports = {
 		// filename: 'bundle.js', //指定打包文件的名称(单页面)
 		filename: '[name].js', //指定打包文件的名称(多页面)占位符的概念，通过占位符，确保文件唯一
 	},
+	module: {
+		rules: [
+			{
+				test: /.js$/,
+				use: 'babel-loader'
+			}
+		]
+	}
 	mode: 'production'
 }
