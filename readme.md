@@ -93,3 +93,11 @@
     - 当前构建时的问题：每次构建的时候不会清理目录，造成构建输出目录output文件越来越多
 		- 通过npm scripts 清理构建目录 ： rm -rf ./dist &&webpack,rimraf ./dist && webpack
 		- 使用插件 避免每次构建都要手动删除dist  clean-webpack-plugin 默认会删除output 指定的输出目录
+### postCSS自动补全前缀
+    - autoPrefixer 插件
+		- css 装换rem px2rem-loader
+### 资源内联
+    - 代码层面：页面框架的初始化脚本，上报相关打点，css内联避免页面闪动
+		- 请求层面：减少http请求，小图片或者字体内联（url-loader）
+		- raw-loader 内联js,html .5的版本:
+    -css 内联 style-loader html-inline-css-webpack-plugin
