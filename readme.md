@@ -80,3 +80,7 @@
 		}
 		```
 		- 热更新：webpack-dev-server,wds不刷新浏览器，wds不输出文件，而是放在内存中（无磁盘IO），使用HotModulePrplacementPlugin插件
+		- 文件指纹: 打包后输出的文件名的后缀
+		- hash：和整个项目的构建相关，只要项目文件有修改，整个项目构建的hash值就会更改
+		- chunkhash: 和webpack打包的chunk有关，不同的entry会生成不同的chunkhash值
+		- contenthash: 根据文件内容来定义hash,文件内容不变，则contenthash不变
