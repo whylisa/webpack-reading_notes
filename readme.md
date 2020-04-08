@@ -61,3 +61,21 @@
 		- less-loader less  style-loader css-loader
 		- 图片解析 file-loader/url-loader
 		- 字体解析 file-loader/url-loader
+	  - 文件监听 是在发现源码变化时自动构建出新的输出文件
+		- webpack开启文件监听模式，有两种方式：1启动webpack命令时，带上--watch参数2在配置webpack.config.js中设置watch:true,自动编译自动构建，需要手动刷新浏览器
+		- 原理分析：轮训判断文件的最后编辑时间是否变化，某个文件发生了变化，并不会立即告诉监听着而是先缓存起来，等aggregateTimemout
+		```js
+		module.export = {
+			//默认false
+			watch: true,
+			//只有开启监听模式时，watchOptions才有意义
+			watchOptions: {
+				//默认为空，不监听的文件或者文件夹，支持正则匹配
+				ignored: /node_modules/
+				//监听到变化发生后会等300ms再去执行，默认300
+				aggregateTimeout: 300
+				//判断文件是否发生变化是通过不停询问系统指定的文件有没有变化实现的，默认每秒问1000次
+				poll: 1000
+			}
+		}
+		```

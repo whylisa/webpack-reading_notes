@@ -5,7 +5,7 @@
  import logo from './image/logo-dark.png'
  class Search extends React.Component {
 	 render () {
-		 return <div className="search-text"> search<img src={logo} /></div>
+		 return <div className="search-text"> searcdsdsdddsdsdh<img src={logo} /></div>
 	 }
 	 
  }
