@@ -89,3 +89,7 @@
     - html html-webpack-plugin  处理换行，注释，空格
 		- css optimize-css-assets-webpack-plugin  同时使用cssnano
 		- js uglifyjs-webpack-plugin wed4已经默认开启了
+### 自动清理构建目录产物
+    - 当前构建时的问题：每次构建的时候不会清理目录，造成构建输出目录output文件越来越多
+		- 通过npm scripts 清理构建目录 ： rm -rf ./dist &&webpack,rimraf ./dist && webpack
+		- 使用插件 避免每次构建都要手动删除dist  clean-webpack-plugin 默认会删除output 指定的输出目录
