@@ -79,3 +79,4 @@
 			}
 		}
 		```
+		- 热更新：webpack-dev-server,wds不刷新浏览器，wds不输出文件，而是放在内存中（无磁盘IO），使用HotModulePrplacementPlugin插件

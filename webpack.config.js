@@ -1,10 +1,10 @@
 'use strict'
 //模块打包器
 const path = require('path')
+const webpack = require('webpack')
 module.exports = {
 	// entry: './src/index.js',//用来指定打包的入口
 	// 多入口entry是一个object对象
-	
 	entry: {
 		index: './src/index.js',
 		search: './src/search.js'
@@ -14,6 +14,7 @@ module.exports = {
 		// filename: 'bundle.js', //指定打包文件的名称(单页面)
 		filename: '[name].js', //指定打包文件的名称(多页面)占位符的概念，通过占位符，确保文件唯一
 	},
+	mode: 'development',
 	module: {
 		rules: [
 			{
@@ -35,26 +36,32 @@ module.exports = {
 					'less-loader'
 				]
 			},
-			// {
-			// 	test: /.(png|jpg|gif|jpeg)$/,
-			// 	use: 'file-loader'
-			// },
 			{
-					test: /.(png|jpg|gif|jpeg)$/,
-					use: [
-						{
-							loader: 'url-loader',
-							options: {
-								limit: 10240
-							}
-						}
-					]
+				test: /.(png|jpg|gif|jpeg)$/,
+				use: 'file-loader'
 			},
+			// {
+			// 		test: /.(png|jpg|gif|jpeg)$/,
+			// 		use: [
+			// 			{
+			// 				loader: 'url-loader',
+			// 				options: {
+			// 					limit: 10240
+			// 				}
+			// 			}
+			// 		]
+			// },
 			{
 				test: /.(woff|woff2|eot|ttf|otf)$/,
 				use: "file-loader"
 			}
 		]
 	},
-	mode: 'production'
+	plugins: [
+		new webpack.HotModuleReplacementPlugin()
+	],
+	devServer: {
+		contentBase: './dist', //服务基础的目录
+		hot: true  //开启
+	}
 }
