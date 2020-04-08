@@ -84,3 +84,8 @@
 		- hash：和整个项目的构建相关，只要项目文件有修改，整个项目构建的hash值就会更改
 		- chunkhash: 和webpack打包的chunk有关，不同的entry会生成不同的chunkhash值
 		- contenthash: 根据文件内容来定义hash,文件内容不变，则contenthash不变
+
+### 代码压缩
+    - html html-webpack-plugin  处理换行，注释，空格
+		- css optimize-css-assets-webpack-plugin  同时使用cssnano
+		- js uglifyjs-webpack-plugin wed4已经默认开启了
