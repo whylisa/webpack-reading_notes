@@ -101,3 +101,14 @@
 		- 请求层面：减少http请求，小图片或者字体内联（url-loader）
 		- raw-loader 内联js,html .5的版本:
     -css 内联 style-loader html-inline-css-webpack-plugin
+		
+		
+### 多页面
+    - 每一个页面对应一个entry,一个页面html-webpack-plugin
+### sourcemap
+    - eval 使用eval包裹代码
+		- source map： 产生.map文件
+		- cheap 不包含列信息
+		- inline 将.map作为DataURi嵌入，不单独产生.mpa文件
+		- module 包含loader的sourcemap
+		
