@@ -111,4 +111,8 @@
 		- cheap 不包含列信息
 		- inline 将.map作为DataURi嵌入，不单独产生.mpa文件
 		- module 包含loader的sourcemap
+### 基础包的分离
+    - splitchunksplugin 进行公共脚本分离
+		- chunks参数说明：async异步引入库进行分离（默认），initial 同步引入库进行分离  all，所有引入库进行分离
+		- html-webpack-externals-plugin 
 		
