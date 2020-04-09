@@ -115,4 +115,12 @@
     - splitchunksplugin 进行公共脚本分离
 		- chunks参数说明：async异步引入库进行分离（默认），initial 同步引入库进行分离  all，所有引入库进行分离
 		- html-webpack-externals-plugin 
-		
+### tree shaking 摇树优化
+    - 一个模块可以有多个方法，只要其中的某个方法使用到了，则整个文件都会被打到bundle里面去，tree shaking 就是只把用到的方法，打入bundle,没用到的方法会在uglify阶段被擦除掉
+		- 使用： webpack默认支持，在.babelrc里面设置modules: false即可
+		- .production mode的情况下默认开启 设置为none，不开启
+		- 要求：必须是es6的语法，cjs的方式不支持
+		- 原理： DCE （elimination）擦除无用的代码: 代码不会执行，不可到达，代码执行的结果不会被用到，代码只会影响死变量（只读不写）
+		- 利用es6的特点：只能作为模块鼎城语句出现，import的模块名只能是字符串常量，import binding 是immutable的，
+		- 代码擦除：uglify阶段删除无用代码
+		- 
