@@ -139,4 +139,8 @@
     - 不重复造轮子，基于eslint:recommend配置并改进
 		- 和CI/CD系统集成，和webpack集成
 		- 本地开发precommit 钩子
-		- 
+### webpack打包库和组件
+    - webpack除了可以用来打包应用，也可以用来打包js库
+		- 实现一个大整数加法库的打包：需要打包压缩版和非压缩版本，支持AMD,CJS、ESM模块引入，通过脚本引入
+		- 库目录结构和打包要求：打包输出的库的名称：dist目录下，未压缩版，large-number.js,压缩版，large-number.min.js
+		- 如何将库暴露出去？：library:指定库的全局变量，libraryTarget:支持库的引入方式
