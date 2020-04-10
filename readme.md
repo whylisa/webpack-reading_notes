@@ -136,5 +136,7 @@
 		- commonjs: require.ensure,
 		- es6: 动态import（目前还没有原生支持，需要babel转换）@babel/plugin-syntax-dynamic-import -D,放到.babelrc中，原理使用jsonp动态创建一个script标签引入进来
 ### eslint 规范实践
-    - 不重复造轮子，机遇eslint:recommend配置并改进
+    - 不重复造轮子，基于eslint:recommend配置并改进
 		- 和CI/CD系统集成，和webpack集成
+		- 本地开发precommit 钩子
+		- 
