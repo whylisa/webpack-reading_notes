@@ -123,4 +123,18 @@
 		- 原理： DCE （elimination）擦除无用的代码: 代码不会执行，不可到达，代码执行的结果不会被用到，代码只会影响死变量（只读不写）
 		- 利用es6的特点：只能作为模块鼎城语句出现，import的模块名只能是字符串常量，import binding 是immutable的，
 		- 代码擦除：uglify阶段删除无用代码
-		- 
+### scopehositing(现象：构建后存在大量的闭包代码：体积变大，模块越多越明显)
+    - 原理：将所有模块的代码按照引用顺序放在一个函数作用域里，然后适当的重命名一些变量防止命名冲突
+		- 对比： 通过scope hoisting 可以减少函数声明代码和内存开销
+		- import会被转换成__webpack_require
+		- 进一步分析wb模块机制：打包出来的是一个IIFE(匿名闭包)，modules是一个数组，每一项是一个模块初始化函数，__webpack_require用来加载模块，返回module.exports
+		- 通过WEBPACK_REQUIRE_METHOD(0)启动程序
+		- mode:productin，默认开启，wb3需要引入，new webpack.optimize.ModuleConcatenationPlugin()
+		- 必须是es6的语法,cjs不支持
+### 代码分割，动态import
+    - 使用场景：抽离相同代码到一个共享块，脚本懒加载，使得初始化下载代码更小
+		- commonjs: require.ensure,
+		- es6: 动态import（目前还没有原生支持，需要babel转换）@babel/plugin-syntax-dynamic-import -D,放到.babelrc中，原理使用jsonp动态创建一个script标签引入进来
+### eslint 规范实践
+    - 不重复造轮子，机遇eslint:recommend配置并改进
+		- 和CI/CD系统集成，和webpack集成
