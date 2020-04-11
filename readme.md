@@ -144,3 +144,14 @@
 		- 实现一个大整数加法库的打包：需要打包压缩版和非压缩版本，支持AMD,CJS、ESM模块引入，通过脚本引入
 		- 库目录结构和打包要求：打包输出的库的名称：dist目录下，未压缩版，large-number.js,压缩版，large-number.min.js
 		- 如何将库暴露出去？：library:指定库的全局变量，libraryTarget:支持库的引入方式
+		- 在分支打包组件和库，直接发布到npm
+### 打包ssr
+    - 服务端渲染是什么：渲染html,css,js,data ->渲染后的html
+		- 服务端：所有模板等资源都存储在服务端，内网机器拉取数据更快，一个HTML返回所有数据
+		- 减少白屏，对于seo友好
+    - 代码实现思路： 
+		- 服务端：使用react-dom/server的renderTostring方法将react组件渲染成字符串，服务端路由返回对应的模板
+		- 客户端：打包出针对服务端的组件	
+		- 图片img标签 src="[object Module]" 设置	esModule: false
+		- 但是如果使用"file-loader": "^4.2.0"或者"file-loader": "^2.0.0"却可以正常打包，后来发现file-loader在新版本中esModule默认为true，因此手动设置为false
+		
