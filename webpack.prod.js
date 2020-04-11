@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 
 const glob = require('glob');
 
@@ -137,21 +138,24 @@ module.exports = {
             assetNameRegExp: /\.css$/g,
             cssProcessor: require('cssnano')
         }),
-				// new HtmlWebpackExternalsPlugin({
-				// 	externals: [
-				// 		{
-				// 			module: 'react',
-				// 			entry: 'https://11.url.cn/now/lib/16.2.0/react.min.js',
-				// 			global: 'React'
-				// 		},
-				// 		{
-				// 			module: 'react-dom',
-				// 			entry: 'https://11.url.cn/now/lib/16.2.0/react-dom.min.js',
-				// 			global: 'ReactDOM'
-				// 		}
-				// 	]
-				// })
+				new HtmlWebpackExternalsPlugin({
+					externals: [
+						{
+							module: 'react',
+							entry: 'https://11.url.cn/now/lib/16.2.0/react.min.js',
+							global: 'React'
+						},
+						{
+							module: 'react-dom',
+							entry: 'https://11.url.cn/now/lib/16.2.0/react-dom.min.js',
+							global: 'ReactDOM'
+						}
+					]
+				}),
+				new FriendlyErrorsWebpackPlugin()
+				
     ].concat(htmlWebpackPlugins),
+		stats: 'errors-only',
     // devtool: 'inline-source-map',内容和js在一起
     // devtool: 'source-map',
 		optimization: {
