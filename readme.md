@@ -154,4 +154,4 @@
 		- 客户端：打包出针对服务端的组件	
 		- 图片img标签 src="[object Module]" 设置	esModule: false
 		- 但是如果使用"file-loader": "^4.2.0"或者"file-loader": "^2.0.0"却可以正常打包，后来发现file-loader在新版本中esModule默认为true，因此手动设置为false
-		
+		- 使用打包出来的浏览器端html为模板，设置占位符，动态插入组件
