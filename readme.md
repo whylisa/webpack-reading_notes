@@ -156,4 +156,7 @@
 		- 但是如果使用"file-loader": "^4.2.0"或者"file-loader": "^2.0.0"却可以正常打包，后来发现file-loader在新版本中esModule默认为true，因此手动设置为false
 		- 使用打包出来的浏览器端html为模板，设置占位符，动态插入组件
 ### 优化命令行日志显示
-    - friendly-errors-webpack-plugin
+    - friendly-errors-webpack-plugin 
+### 构建配置包
+    - webpack-merge
+		- 功能模块设计目录

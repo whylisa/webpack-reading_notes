@@ -54,6 +54,7 @@
     "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
-    "lib-flexible": "^0.3.2"
+    "lib-flexible": "^0.3.2",
+    "webpack-merge": "^4.2.2"
   }
 }
