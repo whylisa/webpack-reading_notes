@@ -159,4 +159,7 @@
     - friendly-errors-webpack-plugin 
 ### 构建配置包
     - webpack-merge
-		- 功能模块设计目录
+		- 功能模块设计目录 builder-webpack
+### 使用eslint规范构建脚本
+    - eslint-config-airbnb-base
+		- eslint --fix 可以自动处理空格
