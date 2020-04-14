@@ -3,11 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const glob = require('glob');
+const path = require('path')
+
+const projectRoot = process.cwd() //配合冒烟测试修改目录
 
 const setMPA = () => {
 	    const entry = {};
 	    const htmlWebpackPlugins = [];
-	    const entryFiles = glob.sync(path.join(__dirname, './src/*/index.js'));
+	    const entryFiles = glob.sync(path.join(projectRoot, './src/*/index.js'));
 
 	    Object.keys(entryFiles)
 	        .map((index) => {
@@ -21,7 +24,7 @@ const setMPA = () => {
 	            htmlWebpackPlugins.push(
 	                new HtmlWebpackPlugin({
 	                    inlineSource: '.css$',
-	                    template: path.join(__dirname, `src/${pageName}/index.html`),
+	                    template: path.join(projectRoot, `src/${pageName}/index.html`),
 	                    filename: `${pageName}.html`,
 	                    chunks: ['vendors', pageName],
 	                    inject: true,
